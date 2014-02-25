@@ -191,7 +191,7 @@ angular.module('ngTurbolinks', []).run(($location, $rootScope, $http, $q, $compi
       document.location.href = url
 
   $rootScope.$on("$locationChangeStart", (event, url, prev_url)->
-    if url == prev_url || !triggerEvent 'page:before-change'
+    if url.split('#')[0] == prev_url.split('#')[0] || !triggerEvent 'page:before-change'
       event.preventDefault()
       return false
     
